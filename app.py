@@ -237,9 +237,12 @@ if page == "Home":
     st.write("")
     _, center, _ = st.columns([.5, 1.25, .5])
     with center:
-        if st.button("Launch Beam Analyzer  →", type="primary", use_container_width=True):
-            st.session_state["main_nav"] = "Beam Analyzer"
-            st.rerun()
+        st.button(
+            "Launch Beam Analyzer  →",
+            type="primary",
+            use_container_width=True,
+            on_click=lambda: st.session_state.update({"main_nav": "Beam Analyzer"}),
+        )
 
     st.markdown("<div class='section-heading'>A clearer way to study beam behaviour</div>", unsafe_allow_html=True)
     cols = st.columns(3, gap="medium")
